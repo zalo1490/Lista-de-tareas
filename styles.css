@@ -225,3 +225,31 @@ body.dark-mode .done {
     background-color: #555;
     color: #aaa;
 }
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.filters button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.filters button:hover {
+    transform: scale(1.05);
+    background: var(--primary);
+    color: var(--light);
+}
+
+body.dark-mode .filters button {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+}
