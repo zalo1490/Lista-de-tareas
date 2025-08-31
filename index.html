@@ -28,6 +28,12 @@
             <button type="submit" class="addTaskButton">+</button>
             <button type="button" class="orderButton roundBorder" onclick="renderOrderedTasks()">Ordenar</button>
         </form>
+        <div class="filters">
+    <button type="button" onclick="filterTasks('all')">Todas</button>
+    <button type="button" onclick="filterTasks('pending')">Pendientes</button>
+    <button type="button" onclick="filterTasks('done')">Hechas</button>
+</div>
+
         <div id="tasksContainer"></div>
     </div>
 </body>
