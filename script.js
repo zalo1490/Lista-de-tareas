@@ -97,3 +97,20 @@ toggleThemeBtn.addEventListener("click", () => {
         toggleThemeBtn.textContent = "🌙";
     }
 });
+// Filtro de tareas
+const filterTasks = (filter) => {
+    const tasks = tasksContainer.querySelectorAll(".task");
+    tasks.forEach(task => {
+        switch(filter) {
+            case "all":
+                task.style.display = "block";
+                break;
+            case "pending":
+                task.style.display = task.classList.contains("done") ? "none" : "block";
+                break;
+            case "done":
+                task.style.display = task.classList.contains("done") ? "block" : "none";
+                break;
+        }
+    });
+};
