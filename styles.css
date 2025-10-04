@@ -1,252 +1,381 @@
 :root {
-    --primary: #6c63ff;
-    --secondary: #ff6584;
-    --light: #ffffff;
-    --dark: #2d2d2d;
-    --disabled: #dfe4ea;
+  --primary: #6c63ff;
+  --secondary: #ff6584;
+  --light: #ffffff;
+  --dark: #2d2d2d;
+  --disabled: #dfe4ea;
+}
+
+/* ================== */
+/* Inputs Login / Registro uniformes */
+/* ================== */
+#authContainer input[type="text"],
+#authContainer input[type="password"],
+#authContainer input[type="email"] {
+  width: 100%;              /* Mismo ancho para todos */
+  max-width: 280px;         /* Límite de ancho */
+  box-sizing: border-box;
+  margin: 8px auto;
+  display: block;           /* Uno debajo del otro */
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#authContainer input:focus {
+  outline: none;
+  box-shadow: 0 0 8px var(--primary);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Botones de login/registro alineados */
+#authContainer button {
+  width: 100%;               /* Mismo ancho que los inputs */
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--secondary);
+  color: var(--light);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#authContainer button:hover {
+  background-color: #e84560;
+  transform: scale(1.05);
 }
 
 body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #6c63ff, #00c9ff, #92fe9d);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6c63ff, #00c9ff, #92fe9d);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
 }
 
 @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 *:first-letter {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .roundBorder {
-    border-radius: 12px;
+  border-radius: 12px;
 }
 
 .list {
-    margin: 25px auto;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    color: var(--dark);
-    animation: fadeIn 0.8s ease;
+  margin: 25px auto;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  color: var(--dark);
+  animation: fadeIn 0.8s ease;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .date {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: bold;
-    color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  color: var(--dark);
 }
 
 .dateRight {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #dateNumber {
-    font-size: 50px;
-    color: var(--secondary);
-    font-weight: 900;
+  font-size: 50px;
+  color: var(--secondary);
+  font-weight: 900;
 }
 
 #dateText {
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: var(--primary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--primary);
 }
 
 #dateMonth,
 #dateNumber,
 #dateText  {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #dateMonth,
 #dateYear {
-    margin-left: 7px;
-    font-size: 18px;
+  margin-left: 7px;
+  font-size: 18px;
 }
 
-form {
-    margin: 20px 0;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: auto 45px auto;
-    grid-column-gap: 12px;
+/* ✅ Ahora solo aplica al formulario de tareas */
+#mainApp form {
+  margin: 20px 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 45px auto;
+  grid-column-gap: 12px;
 }
 
 input {
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.6);
-    transition: all 0.3s ease;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
 }
 
 input:focus {
-    outline: none;
-    box-shadow: 0 0 8px var(--primary);
-    background-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  box-shadow: 0 0 8px var(--primary);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .addTaskButton,
 .orderButton {
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .addTaskButton {
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    font-size: 22px;
-    background-color: var(--primary);
-    color: var(--light);
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  font-size: 22px;
+  background-color: var(--primary);
+  color: var(--light);
 }
 
 .addTaskButton:hover {
-    transform: scale(1.1);
-    background-color: #5144d8;
+  transform: scale(1.1);
+  background-color: #5144d8;
 }
 
 .orderButton {
-    background-color: var(--secondary);
-    color: var(--light);
-    padding: 10px;
-    border-radius: 12px;
+  background-color: var(--secondary);
+  color: var(--light);
+  padding: 10px;
+  border-radius: 12px;
 }
 
 .orderButton:hover {
-    transform: scale(1.05);
-    background-color: #e84560;
+  transform: scale(1.05);
+  background-color: #e84560;
 }
 
 .task {
-    background-color: var(--primary);
-    padding: 15px;
-    margin-top: 15px;
-    color: var(--light);
-    cursor: pointer;
-    border-radius: 10px;
-    animation: taskFade 0.5s ease forwards;
-    opacity: 0;
-    transform: translateY(10px);
+  background-color: var(--primary);
+  padding: 15px;
+  margin-top: 15px;
+  color: var(--light);
+  cursor: pointer;
+  border-radius: 10px;
+  animation: taskFade 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 @keyframes taskFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .done {
-    background-color: var(--disabled);
-    text-decoration: line-through;
-    color: var(--dark);
-}
-.task {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.4s ease;
+  background-color: var(--disabled);
+  text-decoration: line-through;
+  color: var(--dark);
 }
 
 .task.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
+
 /* Botón de toggle */
 .toggleThemeButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    border: none;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(5px);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 .toggleThemeButton:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* 🌙 Dark Mode */
 body.dark-mode {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: var(--light);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: var(--light);
 }
 
 body.dark-mode .list {
-    background: rgba(0, 0, 0, 0.3);
-    color: var(--light);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--light);
 }
 
 body.dark-mode input {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--light);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light);
 }
 
 body.dark-mode .task {
-    background-color: #374785;
-    color: var(--light);
+  background-color: #374785;
+  color: var(--light);
 }
 
 body.dark-mode .done {
-    background-color: #555;
-    color: #aaa;
+  background-color: #555;
+  color: #aaa;
 }
+
 .filters {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .filters button {
-    flex: 1;
-    margin: 0 5px;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.6);
-    transition: all 0.3s ease;
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
 }
 
 .filters button:hover {
-    transform: scale(1.05);
-    background: var(--primary);
-    color: var(--light);
+  transform: scale(1.05);
+  background: var(--primary);
+  color: var(--light);
+}
+
+body.dark-mode .filters button {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--light);
+}
+
+/* ================== */
+/* 📅 Calendario */
+/* ================== */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.calendar-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.calendar-day {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.6);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.calendar-day:hover {
+  transform: scale(1.05);
+  background: var(--primary);
+  color: var(--light);
+}
+
+.calendar-day.selected {
+  background: var(--secondary);
+  color: var(--light);
+}
+
+.calendar-day.has-tasks::after {
+  content: "•";
+  color: var(--secondary);
+  font-size: 20px;
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+}
+
+body.dark-mode .calendar-day {
+  background: rgba(255,255,255,0.1);
+  color: var(--light);
+}
+
+/* Botón de logout arriba a la izquierda */
+.logoutButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: none;
+  background-color: var(--secondary);
+  color: var(--light);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.logoutButton:hover {
+  transform: scale(1.05);
+  background-color: #e84560;
+}
+/* Centrar títulos y textos de login/registro */
+#authContainer h2,
+#authContainer p {
+  text-align: center;
 }
 
 body.dark-mode .filters button {
